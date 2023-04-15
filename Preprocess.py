@@ -8,7 +8,7 @@ class preprocessing():
         self.path = path
         self.enhanced_img = None
         self.img = None
-        self.words = {}
+        self.words = []
 
 
     def read_img(self):
@@ -61,7 +61,7 @@ class preprocessing():
                 word = image[y-5:y+h+5, x-5:x+w+5]
                 word_pos=[x, y, w, h]
                 pos.append([x, y, w, h])
-                self.words[word_count]={'img' : word,'pos':word_pos}
+                self.words[word_count]=[(word,word_pos)]
                 word_count += 1
         cv2.imshow(image)
 
@@ -70,7 +70,6 @@ class preprocessing():
         with open('words//words.csv', 'w') as file:
             writer = csv.writer(file)
             # writer.writerow(header)
-            for i, (img , pos) in enumerate(self.words):
-                writer.writerow([str(i), str(pos[0]), str(pos[1]) ,  str(pos[2]) , str(pos[3])])
-                cv2.imwrite('words//' + str(i)  + '.png', img)
-i
+            for i, (ind , values) in enumerate(self.words.items()):
+                writer.writerow([str(ind), str(values['pos'][0]), str(values['pos'][1]) ,  str(values['pos'][2]) , str(values['pos'][3])])
+                cv2.imwrite('words/' + str(ind)  + '.png', values['img'])
