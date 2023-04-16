@@ -70,7 +70,6 @@ class preprocessing():
         with open('words//words.csv', 'w') as file:
             writer = csv.writer(file)
             # writer.writerow(header)
-            for i, (ind , values) in enumerate(self.words.items()):
-                writer.writerow([str(ind), str(values['pos'][0]), str(values['pos'][1]) ,  str(values['pos'][2]) , str(values['pos'][3])])
-                cv2.imwrite('words/' + str(ind)  + '.png', values['img'])
-i
+            for i, (key , values) in enumerate(self.words.items()):
+                writer.writerow([str(key), str(values['pos'][0]), str(values['pos'][1]) ,  str(values['pos'][2]) , str(values['pos'][3])])
+                cv2.imwrite('words/' + str(key)  + '.png', values['img'])
