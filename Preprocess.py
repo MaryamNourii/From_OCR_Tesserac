@@ -6,10 +6,6 @@ import csv
 class preprocessing():
     def __init__(self, path):
         self.path = path
-        self.enhanced_img = None
-        self.img = None
-        self.words = {}
-
 
     def read_img(self):
         self.img = cv2.imread(self.path)
