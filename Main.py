@@ -27,7 +27,6 @@ def show_results():
             words.append(img)
             print('pred------' + data[item.split('.')[0]][5])
             cv2.imshow(img)            
-            cv2.waitKey()
 
 
 def main():
