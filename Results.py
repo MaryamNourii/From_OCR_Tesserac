@@ -1,4 +1,4 @@
-class Results():
+class Main():
     def __init__(self) -> None:
         pass
     def read_results(self):
